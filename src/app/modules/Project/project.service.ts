@@ -22,8 +22,12 @@ const getAllProjectFromDB = async (query: Record<string, unknown>) => {
     result,
   };
 };
-
+const deleteProjectFromDB = async (id: string) => {
+  const result = await Project.findByIdAndDelete(id);
+  return result;
+};
 export const ProjectService = {
   postProjectIntoDB,
   getAllProjectFromDB,
+  deleteProjectFromDB
 };

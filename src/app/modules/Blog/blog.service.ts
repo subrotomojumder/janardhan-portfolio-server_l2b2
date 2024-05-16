@@ -22,8 +22,12 @@ const getAllBlogFromDB = async (query: Record<string, unknown>) => {
     result,
   };
 };
-
+const deleteBlogFromDB = async (id: string) => {
+  const result = await Blog.findByIdAndDelete(id);
+  return result;
+};
 export const BlogService = {
   postBlogIntoDB,
   getAllBlogFromDB,
+  deleteBlogFromDB
 };

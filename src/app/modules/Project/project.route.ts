@@ -19,25 +19,6 @@ router.post(
   ProjectController.postProject,
 );
 router.get('/', ProjectController.getAllProject);
-
-// router.patch(
-//   '/:departmentId',
-//   auth(USER_ROLE.superAdmin, USER_ROLE.admin),
-//   validateRequest(
-//     AcademicDepartmentValidation.updateAcademicDepartmentValidationSchema,
-//   ),
-//   AcademicDepartmentControllers.updateAcademicDeartment,
-// );
-
-// router.get(
-//   '/',
-//   auth(
-//     USER_ROLE.superAdmin,
-//     USER_ROLE.admin,
-//     USER_ROLE.faculty,
-//     USER_ROLE.student,
-//   ),
-//   AcademicDepartmentControllers.getAllAcademicDepartments,
-// );
+router.delete('/:id', ProjectController.deleteProject);
 
 export const ProjectRoute = router;

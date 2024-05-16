@@ -25,38 +25,20 @@ const getAllBlog = catchAsync(async (req, res) => {
   });
 });
 
-// const getSingleAcademicDepartment = catchAsync(async (req, res) => {
-//   const { departmentId } = req.params;
-//   const result =
-//     await AcademicDepartmentServices.getSingleAcademicDepartmentFromDB(
-//       departmentId,
-//     );
+const deleteBlog = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await BlogService.deleteBlogFromDB(id);
 
-//   sendResponse(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Academic department is retrieved successfully',
-//     data: result,
-//   });
-// });
-
-// const updateAcademicDeartment = catchAsync(async (req, res) => {
-//   const { departmentId } = req.params;
-//   const result =
-//     await AcademicDepartmentServices.updateAcademicDepartmentIntoDB(
-//       departmentId,
-//       req.body,
-//     );
-
-//   sendResponse(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Academic department is updated successfully',
-//     data: result,
-//   });
-// });
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Blog delete is successfully',
+    data: result,
+  });
+});
 
 export const BlogController = {
   postBlog,
-   getAllBlog,
+  getAllBlog,
+  deleteBlog,
 };
