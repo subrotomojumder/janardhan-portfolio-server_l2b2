@@ -11,24 +11,16 @@ router.post(
 );
 router.get('/', SkillController.getAllSkill);
 
-// router.patch(
-//   '/:departmentId',
-//   auth(USER_ROLE.superAdmin, USER_ROLE.admin),
-//   validateRequest(
-//     AcademicDepartmentValidation.updateAcademicDepartmentValidationSchema,
-//   ),
-//   AcademicDepartmentControllers.updateAcademicDeartment,
-// );
+router.patch(
+  '/:id',
+  validateRequest(
+    SkillValidation.postSkillSchema.augment({
+      body: SkillValidation.postSkillSchema.shape.body.partial()
+    })
+  ),
+  SkillController.updateSkill
+);
 
-// router.get(
-//   '/',
-//   auth(
-//     USER_ROLE.superAdmin,
-//     USER_ROLE.admin,
-//     USER_ROLE.faculty,
-//     USER_ROLE.student,
-//   ),
-//   AcademicDepartmentControllers.getAllAcademicDepartments,
-// );
+
 
 export const SkillRoute = router;

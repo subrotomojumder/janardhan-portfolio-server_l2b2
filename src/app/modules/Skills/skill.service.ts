@@ -23,7 +23,23 @@ const getAllSkillFromDB = async (query: Record<string, unknown>) => {
   };
 };
 
+const updateSkillIntoDB = async ({ id, newUpdatedData }: {
+  id: string,
+  newUpdatedData: Partial<TSkill>
+}) => {
+  const result = await Skill.findByIdAndUpdate(
+    id,
+    newUpdatedData,
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
+  return result;
+};
+
 export const SkillService = {
   postSkillIntoDB,
   getAllSkillFromDB,
+  updateSkillIntoDB
 };

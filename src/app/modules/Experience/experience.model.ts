@@ -4,6 +4,10 @@ import { JobType, Office } from './experience.constant';
 
 const experienceSchema = new Schema<TExperience>(
   {
+    designation: {
+      type: String,
+      required: true,
+    },
     companyName: {
       type: String,
       required: true,

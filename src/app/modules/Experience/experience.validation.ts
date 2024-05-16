@@ -3,6 +3,7 @@ import { JobType, Office } from './experience.constant';
 
 const postExperienceSchema = z.object({
   body: z.object({
+    designation: z.string(),
     companyName: z.string(),
     location: z.string(),
     dateOfEntry: z.string({ required_error: 'Employed date is required!' }),

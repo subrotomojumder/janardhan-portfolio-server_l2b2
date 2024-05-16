@@ -24,39 +24,19 @@ const getAllSkill = catchAsync(async (req, res) => {
     data: result.result,
   });
 });
-
-// const getSingleAcademicDepartment = catchAsync(async (req, res) => {
-//   const { departmentId } = req.params;
-//   const result =
-//     await AcademicDepartmentServices.getSingleAcademicDepartmentFromDB(
-//       departmentId,
-//     );
-
-//   sendResponse(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Academic department is retrieved successfully',
-//     data: result,
-//   });
-// });
-
-// const updateAcademicDeartment = catchAsync(async (req, res) => {
-//   const { departmentId } = req.params;
-//   const result =
-//     await AcademicDepartmentServices.updateAcademicDepartmentIntoDB(
-//       departmentId,
-//       req.body,
-//     );
-
-//   sendResponse(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Academic department is updated successfully',
-//     data: result,
-//   });
-// });
+const updateSkill = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await SkillService.updateSkillIntoDB({ id: id, newUpdatedData: req.body });
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Skills is update successfully',
+    data: result,
+  });
+});
 
 export const SkillController = {
   postSkill,
   getAllSkill,
+  updateSkill
 };
