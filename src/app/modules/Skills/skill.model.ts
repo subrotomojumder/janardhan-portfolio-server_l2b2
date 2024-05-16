@@ -14,6 +14,9 @@ const skillSchema = new Schema<TSkill>(
     dateOfEntry: {
       type: Date,
     },
+    level: {
+      type: Number
+    }
   },
   { timestamps: true },
 );

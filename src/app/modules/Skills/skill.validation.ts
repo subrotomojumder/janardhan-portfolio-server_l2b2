@@ -5,6 +5,7 @@ const postSkillSchema = z.object({
     title: z.string(),
     logo: z.string().optional(),
     dateOfEntry: z.string().optional(),
+    level: z.number()
   }),
 });
 
